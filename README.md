@@ -27,8 +27,8 @@ Provide step-by-step instructions on how to install and set up your project. Inc
 ### Example:
 
 ```bash
-git clone https://github.com/harsh0703-harsh/mirrar-task.git
-cd mirrar-task
+git clone https://github.com/harsh0703-harsh/Mirrar.git
+cd Mirrar
 npm install
 
 1.  Create a .env file in the root directory of the project and add the following line to it:
