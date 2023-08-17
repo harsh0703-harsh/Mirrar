@@ -4,8 +4,9 @@ const product = express.Router()
 
 const Products = require("../connection/schema/product.schema");
 const Variants = require("../connection/schema/variants.schema");
+const authenticate = require("../middleware/authenticate");
 
-product.post("", async (req, res) => {
+product.post("", authenticate ,async (req, res) => {
 
     try {
 
@@ -56,7 +57,7 @@ product.post("", async (req, res) => {
 
 })
 
-product.patch("/:id", async (req, res) => {
+product.patch("/:id", authenticate , async (req, res) => {
 
     try {
 
@@ -90,7 +91,7 @@ product.patch("/:id", async (req, res) => {
 
 })
 
-product.get("", async (req, res) => {
+product.get("", authenticate ,async (req, res) => {
 
     try {
 
@@ -114,7 +115,7 @@ product.get("", async (req, res) => {
 
 
 
-product.delete("/:id", async (req, res) => {
+product.delete("/:id", authenticate ,async (req, res) => {
 
     try {
 
@@ -144,7 +145,7 @@ product.delete("/:id", async (req, res) => {
 
 
 
-product.get("/search",async (req,res)=>{
+product.get("/search", authenticate ,async (req,res)=>{
 
     try{
 
@@ -182,7 +183,7 @@ product.get("/search",async (req,res)=>{
 
 })
 
-product.get("/:id", async (req, res) => {
+product.get("/:id", authenticate ,async (req, res) => {
 
     try {
 

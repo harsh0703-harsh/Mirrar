@@ -1,7 +1,8 @@
 const express = require("express");
 const product = require("./router/products");
 const variants = require("./router/variants");
-const Products = require("./connection/schema/product.schema");
+const authentication = require("./router/authentication");
+
 require("./connection/conn")
 
 const app = express()
@@ -11,7 +12,7 @@ app.use(express.json())
 
 app.use("/product",product)
 app.use('/variants',variants)
-
+app.use('/auth',authentication)
 
 
 module.exports = app.listen(3000,()=>{

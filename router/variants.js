@@ -2,10 +2,10 @@ const express = require("express");
 const Variants = require("../connection/schema/variants.schema");
 const skuGenerate = require("../utils/sku");
 const Products = require("../connection/schema/product.schema");
-
+const authenticate = require("../middleware/authenticate")
 const variants = express.Router()
 
-variants.post("/:productId", async (req, res) => {
+variants.post("/:productId", authenticate ,async (req, res) => {
 
 
     try {
@@ -68,7 +68,7 @@ variants.post("/:productId", async (req, res) => {
 })
 
 
-variants.patch("/:variantId", async (req, res) => {
+variants.patch("/:variantId", authenticate ,async (req, res) => {
 
     try {
 
@@ -98,7 +98,7 @@ variants.patch("/:variantId", async (req, res) => {
 })
 
 
-variants.get('/:productId', async (req, res) => {
+variants.get('/:productId', authenticate ,async (req, res) => {
 
     try {
 
@@ -125,7 +125,7 @@ variants.get('/:productId', async (req, res) => {
 
 })
 
-variants.delete('/:productId', async (req, res) => {
+variants.delete('/:productId', authenticate ,async (req, res) => {
 
     try {
 
